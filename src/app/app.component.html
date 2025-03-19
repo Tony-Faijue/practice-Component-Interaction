@@ -4,12 +4,15 @@
       <h3 class="card-title">Parent Component (AppComponent)</h3>
       <!--Use of two-data binding with ngModel-->
       <input type="text" class="form-control w-75" [(ngModel)]="pText" />
-      <p>This is the message from the Child:</p>
+      <p>This is the message from the Child:{{ receiveChildMessage }}</p>
 
       <div class="container">
         <div class="row">
           <div class="col">
-            <app-child [inputText]="pText"></app-child>
+            <app-child
+              [inputText]="pText"
+              (outputValue)="receiveMessage($event)"
+            ></app-child>
           </div>
         </div>
       </div>

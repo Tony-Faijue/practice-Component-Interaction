@@ -8,10 +8,16 @@
         <span>{{ inputText }}</span>
       </p>
       <div>
-        <input type="text" class="form-control w-75" #input />
+        <input
+          type="text"
+          class="form-control w-75"
+          #input
+          [ngModel]="message"
+          (keyup)="sendMessage(input.value)"
+        />
       </div>
       <div>
-        <!---->
+        <!--keyup Allows parent to recieve data in real time-->
         <button class="btn btn-primary" (click)="sendMessage(input.value)">
           Send Message!
         </button>
